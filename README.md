@@ -12,3 +12,8 @@ solo, se arregla solamente ejecutando el script por segunda vez y funciona a la 
 * cd termux-banner
 * chmod +x install.sh
 * ./banner.sh
+
+# Creditos:
+
+* Facu Salgado (ByteSalgado)
+* Regala una estrella al repo si te sirvio, gracias.
