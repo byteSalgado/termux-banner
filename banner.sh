@@ -1,4 +1,5 @@
-#!/bin/bash
+
+ #!/bin/bash
 
 a="Crear banner"
 b="Salir"
@@ -57,8 +58,8 @@ printf "\e[1;32mha confirmado el banner, lo instalaremos en 5 segundos..\n"
 sleep 5
 rm /data/data/com.termux/files/usr/etc/bash.bashrc
 echo "clear" >> /data/data/com.termux/files/usr/etc/bash.bashrc
-echo "PS1='\$'" 
-echo "printf "\e[1;33m Banner por:\e[1;32m Facu Salgado\n" " >> /data/data/com.termux/files/usr/etc/bash.bashrc
+echo "PS1='\$'" >> /data/data/com.termux/files/usr/etc/bash.bashrc
+echo "printf '\e[1;33m Banner por:\e[1;32m Facu Salgado\n' " >> /data/data/com.termux/files/usr/etc/bash.bashrc
 echo "echo" >> /data/data/com.termux/files/usr/etc/bash.bashrc
 echo "echo" >> /data/data/com.termux/files/usr/etc/bash.bashrc
 echo "toilet -f mono12 -F metal $texto" >> /data/data/com.termux/files/usr/etc/bash.bashrc
