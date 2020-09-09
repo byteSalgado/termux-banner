@@ -113,7 +113,7 @@ a6="No"
 
 
 clear
-toilet -f big "Termux Banner"  -F gay | lolcat
+toilet -f big "Banner"  -F gay | lolcat
 sleep 1
 echo -e "$purple(*)$blue Created by$red Facundo Salgado"
 sleep 2
@@ -127,12 +127,12 @@ do
 case $audio in 
 
 $a3)
-
-echo "
-mpv /sdcard/bienvenida.mp3
-" >> /data/data/com.termux/files/usr/etc/bash.bashrc
+sed -i '1i mpv /sdcard/bienvenida.mp3' /data/data/com.termux/files/usr/etc/bash.bashrc
 sleep 1
 echo -e "$purple(*)$blue Audio seteado correctamente.."
+sleep 2
+echo -e "$purple(*)$blue volviendo al menu principal.."
+menu_principal
 
 
 ;;
