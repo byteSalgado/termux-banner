@@ -127,7 +127,8 @@ do
 case $audio in 
 
 $a3)
-sed -i '1i mpv /sdcard/bienvenida.mp3' /data/data/com.termux/files/usr/etc/bash.bashrc
+sed -i '1i clear' /data/data/com.termux/files/usr/etc/bash.bashrc
+sed -i '2i mpv /sdcard/bienvenida.mp3' /data/data/com.termux/files/usr/etc/bash.bashrc
 sleep 1
 echo -e "$purple(*)$blue Audio seteado correctamente.."
 sleep 2
