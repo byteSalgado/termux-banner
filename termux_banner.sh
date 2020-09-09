@@ -377,6 +377,13 @@ style_banner
 ;;
 
 $b)
+echo -e "$purple(*)$blue Programa creado por$red Facu Salgado"
+sleep 2
+echo -e "$purple(*)$blue mi github:$red github.com/bytesalgado"
+sleep 2
+echo -e "$purple(*)$blue mi instagram:$red @facukaku021"
+sleep 2
+menu_principal
 
 ;;
 
