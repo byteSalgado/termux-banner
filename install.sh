@@ -27,7 +27,6 @@ echo -e "$purple(*)$red 1$blue segundos"
 mv bienvenida.mp3 /sdcard/
 cat termux_banner.sh > /data/data/com.termux/files/usr/bin/tbanner
 chmod 700 /data/data/com.termux/files/usr/bin/tbanner
-mv /bin/termux_banner.sh termuxbanner
 apt-get update -y
 echo " "
 apt-get upgrade -y
