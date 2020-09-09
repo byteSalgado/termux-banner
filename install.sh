@@ -47,3 +47,8 @@ pkg install nano -y
 echo ""
 pkg install mpv -y
 echo " "
+clear
+echo -e "$purple(*)$blue Lanzando programa en 5 segundos.."
+sleep 5
+chmod +x termux_banner.sh
+bash termux_banner.sh
