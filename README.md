@@ -1,17 +1,26 @@
 # termux-banner
 Este script modifica su archivo raiz bash.bashrc y le establece un banner elegante en su termux
 
-# BUGS:
+# Funciones:
 
-hasta el momento he  notado un bug que cuando ejecutas el script una vez se cierra y se vuelve a ejecutar
-solo, se arregla solamente ejecutando el script por segunda vez y funciona a la perfeccion.
+* 3 Tipos de estilos para su banner
+* Cambiar Prefix del terminal a su gusto
+* Incluir audio de bienvenida
+
+# Dependencias:
+
+* Toilet
+* Figlet
+* mpv
+* cowsay
 
 # Instalacion:
 
 * git clone https://github.com/byteSalgado/termux-banner
 * cd termux-banner
 * chmod +x install.sh
-* ./banner.sh
+* ./termux.banner.sh
+* Tambien puede ejecutar con termuxbanner en cualquier parte del terminal
 
 # Creditos:
 
