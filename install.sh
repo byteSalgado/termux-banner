@@ -25,12 +25,14 @@ echo -e "$purple(*)$red 2$blue segundos"
 sleep 1
 echo -e "$purple(*)$red 1$blue segundos"
 mv bienvenida.mp3 /sdcard/
-cp termux_banner.sh /bin/
+cat termux_banner.sh > /data/data/com.termux/files/usr/bin/tbanner
+chmod 700 /data/data/com.termux/files/usr/bin/tbanner
 mv /bin/termux_banner.sh termuxbanner
 apt-get update -y
 echo " "
 apt-get upgrade -y
 echo " "
+pkg install tsu -y
 pkg install figlet -y
 echo " "
 pkg install toilet -y
@@ -48,6 +50,8 @@ echo ""
 pkg install mpv -y
 echo " "
 clear
+echo -e "$purple(*)$blue para ejecutar puede escribir$red tbanner$blue en su terminal.."
+sleep 4
 echo -e "$purple(*)$blue Lanzando programa en 5 segundos.."
 sleep 5
 chmod +x termux_banner.sh
