@@ -19,6 +19,7 @@ Este script modifica su archivo raiz bash.bashrc y le establece un banner elegan
 * git clone https://github.com/byteSalgado/termux-banner
 * cd termux-banner
 * chmod +x install.sh
+* ./install.sh
 * ./termux.banner.sh
 * Tambien puede ejecutar con termuxbanner en cualquier parte del terminal
 
