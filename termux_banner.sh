@@ -14,6 +14,9 @@ blue="\033[1;34m"
 nc="\e[0m"
 
 
+#directory verification
+directory=$(pwd)
+
 
 if which toilet >/dev/null; then
 sleep 1
@@ -90,13 +93,16 @@ export PS3=$'\e[01;35m(*)\e[01;32m Elige una Opcion:\e[01;33m '
 a="Perzonalizar Termux"
 b="Creditos"
 c="Restablecer por defecto"
+update="Update Program"
 d="Salir"
 
 #syles banner
 
 style1="Estilo 1"
-style2="Estilo 2 con borde"
+style2="Estilo 2"
 style3="Estilo 3"
+style4="Estilo 4 figura ojos"
+style5="Estilo 5 Figura vaca"
 
 #ps1 modificar
 
@@ -245,7 +251,7 @@ done
 function style_banner(){
 echo
 echo
-select style in "$style1" "$style2" "$style3";
+select style in "$style1" "$style2" "$style3" "$style4" "$style5";
 do
 case $style in
 $style1)
@@ -353,7 +359,45 @@ echo -e "$purple(ERROR)$red $REPLY$blue OPCION NO VALIDA"
 esac
 done
 
+;;
 
+
+$style4)
+
+printf "\e[1;35mIngrese su nombre:\e[1;34m "
+read bannertext
+echo -e "$purple(*)$blue el texto de su banner es$red $bannertext"
+sleep 2
+echo -e "$purple(*)$blue LE mostraremos la vista previa de su banner"
+sleep 2
+cowsay -f eyes  "Bienvenido a termux $bannertext" | lolcat
+sleep 2
+echo -e "$purple(*)$blue Desea agregar el banner?"
+sleep 1
+select confirm in "$a5" "$a6";
+do
+case $confirm in 
+$a5)
+echo -e "$purple(*)$blue Bien crearemos este banner.."
+sleep 2
+rm /data/data/com.termux/files/usr/etc/bash.bashrc
+echo "
+command_not_found_handle() {
+	/data/data/com.termux/files/usr/libexec/termux/command-not-found "$1"
+}
+clear
+cowsay -f eyes  "Bienvenido a termux $bannertext" | lolcat
+" >> /data/data/com.termux/files/usr/etc/bash.bashrc
+echo -e "$purple(*)$blue desea cambiar el prefijo del texto de su terminal?"
+sleep 2
+psconfirm
+
+;;
+
+$a6)
+echo -e "$purple(*)$blue OKey, volviendo al menu principal"
+sleep 1
+menu_principal
 ;;
 
 *)
@@ -361,12 +405,68 @@ echo -e "$purple(ERROR)$red $REPLY$blue OPCION NO VALIDA"
 ;;
 esac
 done
+
+;; 
+
+$style5)
+
+printf "\e[1;35mIngrese su nombre:\e[1;34m "
+read bannertext
+echo -e "$purple(*)$blue el texto de su banner es$red $bannertext"
+sleep 2
+echo -e "$purple(*)$blue LE mostraremos la vista previa de su banner"
+sleep 2
+cowsay "Bienvenido a termux $bannertext" | lolcat
+sleep 2
+echo -e "$purple(*)$blue Desea agregar el banner?"
+sleep 1
+select confirm in "$a5" "$a6";
+do
+case $confirm in 
+$a5)
+echo -e "$purple(*)$blue Bien crearemos este banner.."
+sleep 2
+rm /data/data/com.termux/files/usr/etc/bash.bashrc
+echo "
+command_not_found_handle() {
+	/data/data/com.termux/files/usr/libexec/termux/command-not-found "$1"
+}
+clear
+cowsay "Bienvenido a termux $bannertext" | lolcat
+" >> /data/data/com.termux/files/usr/etc/bash.bashrc
+echo -e "$purple(*)$blue desea cambiar el prefijo del texto de su terminal?"
+sleep 2
+psconfirm
+
+;;
+
+$a6)
+echo -e "$purple(*)$blue OKey, volviendo al menu principal"
+sleep 1
+menu_principal
+;;
+
+*)
+echo -e "$purple(ERROR)$red $REPLY$blue OPCION NO VALIDA"
+;;
+esac
+done
+;;
+
+*)
+echo -e "$purple(ERROR)$red $REPLY$blue OPCION NO VALIDA"
+;;
+esac
+done
+
+
+
 }
 
 function menu_principal() {
 echo
 echo
-select menu in "$a" "$b" "$c" "$d";
+select menu in "$a" "$b" "$c" "$update" "$d";
 do 
 case $menu in
 $a)
@@ -406,6 +506,25 @@ echo -e "$purple(*)$blue volviendo al menu principal.."
 sleep 1
 menu_principal
 ;;
+
+
+$update)
+if [ -e $directory/termux_banner.sh ]
+then
+rm $directory/termux_banner.sh
+fi
+echo -e "$purple(*)$blue Actualizando programa en 5 segundos.."
+sleep 5
+curl https://raw.githubusercontent.com/byteSalgado/termux-banner/master/termux_banner.sh > termux_banner.sh
+chmod +x termux_banner.sh
+echo -e "$nc($blue*$nc)$green Programa Actualizado.. vuelva a ejecutarlo nuevamente.."
+sleep 3
+exit
+
+;;
+
+
+
 
 $d)
 echo -e "$purple(*)$blue Saliendo del programa.. Created by $red Facu Salgado$nc"
